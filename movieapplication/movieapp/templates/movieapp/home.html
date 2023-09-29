@@ -1,11 +1,28 @@
+{% extends 'movieapp/base.html' %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h2>Home page</h2>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block title %}
+    <title>Домашняя страница</title>
+    {% endblock %}
+  </head>
+  {% block content %}
+  <body style>
+    <div class="container text-center">
+      <h1>Домашняя страница</h1>
+      <p>
+        Сайт, на котором можно посмотреть топ 50 самых популярных фильмов,
+        посмотреть их и узнать что посмотреть если не нашел подходящего
+        результата. <br />
+        Мы как кинопоиск, только лучше. База фильмов будет обновляться со
+        временем
+      </p>
+      <a href="#"
+        ><button class="btn btn-info">Перейти к лучшим фильмам</button></a
+      >
+    </div>
+    {% endblock %}
+  </body>
 </html>
