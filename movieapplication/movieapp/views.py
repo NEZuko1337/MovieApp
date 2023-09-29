@@ -30,7 +30,7 @@ def advice_film(request):
             )
         else:
             return render(request, 'movieapp/advice_film.html', {
-                'error': "Ты ничего не ввел, введи условно жанр, или все что тебе интересно"
+                'error': "Ты ничего не ввел, введи условно жанр, или любую другую информацию, которая тебе интересна"
             }
         )
     else:
