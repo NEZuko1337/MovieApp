@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import openai
+from . models import Films
 
 openai.api_base = "https://api.theb.ai/v1"
 openai.api_key = 'sk-17mVUHXC49edx0trRiNXVGhlQi5BSQfHFXgWoinmcs0IV9q3'
@@ -35,3 +36,7 @@ def advice_film(request):
         )
     else:
         return render(request, 'movieapp/advice_film.html')
+    
+def topfilms(request):
+    films = Films.objects.all()
+    return render(request, 'movieapp/top50films.html', {'films' : films})
