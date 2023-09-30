@@ -9,7 +9,10 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('advice', views.advice_film, name = 'advicepage'),
     path('advice/', views.advice_film, name = 'advice'),
-]
+    path('films/', views.topfilms, name='topfilms'),
+    
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
