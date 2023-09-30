@@ -22,8 +22,8 @@
     <button
       class="navbar-toggler"
       type="button"
-      data-toggle="collapse"
-      data-target="#navbarNav"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
       aria-controls="navbarNav"
       aria-expanded="false"
       aria-label="Toggle navigation"
@@ -36,7 +36,7 @@
           <a class="nav-link" href="{% url 'home' %}">Домашняя страница</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Топ фильмов</a>
+          <a class="nav-link" href="{% url 'topfilms' %}">Топ фильмов</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'advicepage' %}"

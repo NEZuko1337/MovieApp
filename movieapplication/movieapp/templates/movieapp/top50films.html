@@ -1,0 +1,39 @@
+{% extends 'movieapp/base.html' %} {% load static %} {% block title %}
+<title>Лучшие фильмы</title>
+{% endblock %} {% block content %}
+<body style>
+  <div class="container text-center">
+    <h1>Топ 50 фильмов</h1>
+  </div>
+  {% for film in films %} {% if forloop.counter0|divisibleby:3 %}
+  <div class="container">
+    <div class="row">
+      {% endif %}
+      <div class="col-md-4">
+        <div class="card">
+          <img
+            width="250px"
+            height="600px"
+            src="{{ film.photo.url }}"
+            class="card-img-top"
+            alt="{{ film.title }}"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ film.title }}</h5>
+            <p class="card-text">
+              {{ film.description|safe|truncatechars:75 }}
+            </p>
+            <a href="#"
+              ><button class="btn btn-outline-success">
+                Читать подробнее
+              </button></a
+            >
+          </div>
+        </div>
+      </div>
+      {% if forloop.counter|divisibleby:3 or forloop.last %}
+    </div>
+  </div>
+  {% endif %} {% endfor %}
+</body>
+{% endblock %}
