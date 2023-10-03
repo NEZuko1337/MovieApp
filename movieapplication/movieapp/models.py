@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 class Films(models.Model):
     title = models.CharField(max_length=128, null=False)
@@ -13,3 +14,8 @@ class Films(models.Model):
 
     def __str__(self) -> str:
         return f'{self.title} | {self.genre}'
+    
+
+class User(AbstractUser):
+    photo = models.ImageField(blank=True, upload_to='profile_photos')
+    
