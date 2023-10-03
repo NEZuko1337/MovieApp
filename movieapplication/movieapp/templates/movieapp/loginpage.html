@@ -1,0 +1,42 @@
+{% extends 'movieapp/base.html' %} {% load static %} {% block title %}
+<title>Войти</title>
+{% endblock %} {% block content %}
+<body>
+  <div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h4>Войти</h4>
+          </div>
+          <div class="card-body">
+            <form action="{% url 'loginuser' %}" method="post">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="{{ form.username.id_for_label }}">Логин</label>
+                {{ form.username }}
+              </div>
+              <br />
+              <div class="form-group">
+                <label for="{{form.password.id_for_label}}">Пароль</label>
+                {{ form.password }}
+              </div>
+              <br />
+              <button type="submit" class="btn btn-primary">Войти</button>
+              {% if error %}
+              <div class="form-group">
+                <div class="alert alert-danger" role="alert">
+                  {{ error }}
+                </div>
+                {% endif %}
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+{% endblock %}

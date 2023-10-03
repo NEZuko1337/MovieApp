@@ -1,0 +1,40 @@
+{% extends 'movieapp/base.html' %} {% load static %} {% block title %}
+<title>Подробная информация</title> {% endblock %} {% block content %}
+<body style>
+  <div class="container text-center">
+    <h1>Подробная информация и просмотр</h1>
+    <div class="container mx-5">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="{{film.photo.url}}" class="img-fluid" alt="Movie Poster" />
+        </div>
+        <div class="col-md-8">
+          <div class="card" style="width: 40rem; height: 28.3rem">
+            <div class="card-body">
+              <h5 class="card-title">{{film.title}}</h5>
+              <p class="card-text">{{ film.description }}</p>
+              <h6 class="card-subtitle mb-2 text-muted">Актеры фильма:</h6>
+              {{film.actors}}
+              <br />
+              <br />
+              <h6 class="card-subtitle mb-2 text-muted">Жанр(ы):</h6>
+              {{film.genre}}
+              <br />
+              <br />
+              <a
+                href="{{ film.link_to_watch }}"
+                target="_blank"
+                class="btn btn-outline-primary"
+                style="width: 35rem"
+                >Смотреть</a
+              >
+              <br />
+              P.S Если ссылка не открывается, включи VPN
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+{% endblock %}

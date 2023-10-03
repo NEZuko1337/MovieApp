@@ -15,7 +15,7 @@
             width="250px"
             height="600px"
             src="{{ film.photo.url }}"
-            class="card-img-top"
+            class="card-img-top img-fluid"
             alt="{{ film.title }}"
           />
           <div class="card-body">
@@ -23,7 +23,7 @@
             <p class="card-text">
               {{ film.description|safe|truncatechars:75 }}
             </p>
-            <a href="#"
+            <a href="{% url 'moreinfo' film.pk %}"
               ><button class="btn btn-outline-success">
                 Читать подробнее
               </button></a

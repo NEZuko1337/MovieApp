@@ -1,0 +1,51 @@
+{% extends 'movieapp/base.html' %} {% load static %} {% block title %}
+<title>Зарегистрироваться</title>
+{% endblock %} {% block content %}
+</head>
+<body>
+    <div class="container">
+      <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <h4>Регистрация</h4>
+            </div>
+            <div class="card-body">
+              <form action="{% url 'signupuser' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="{{ form.username.id_for_label }}">Логин</label>
+                  {{form.username}}
+                </div>
+                <div class="form-group">
+                  <label for="{{ form.password1.id_for_label }}">Пароль</label>
+                  {{form.password1}}
+                </div>
+                <div class="form-group">
+                  <label for="{{ form.password2.id_for_label }}">Подтвердите пароль</label>
+                  {{form.password2}}
+                </div>
+                <div class="form-group">
+                  <label for="{{form.email.id_for_label}}">Email адрес</label>
+                  {{form.email}}
+                </div>
+                <div class="form-group">
+                  <label for="{{form.photo.id_for_label}}">Выбор фото(необязательно)</label>
+                  <br>
+                  {{form.photo}}
+                </div>
+                <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                {% if error %}
+                <div class="form-group">
+                  <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                  </div>
+                </div>
+                {% endif %}
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

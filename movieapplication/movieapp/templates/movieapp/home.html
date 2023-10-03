@@ -1,28 +1,63 @@
 {% extends 'movieapp/base.html' %} {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% block title %}
     <title>Домашняя страница</title>
     {% endblock %}
   </head>
   {% block content %}
+  <style>
+    .container {
+      margin-top: 50px;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background-color: #007bff;
+      border: none;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #0069d9;
+    }
+  </style>
   <body style>
     <div class="container text-center">
-      <h1>Домашняя страница</h1>
+      <h1>Домашняя страница 🎬🍿</h1>
       <p>
-        Сайт, на котором можно посмотреть топ 50 самых популярных фильмов,
-        посмотреть их и узнать что посмотреть если не нашел подходящего
-        результата. <br />
+        Сайт, на котором можно посмотреть топ 50 самых популярных фильмов. Если
+        ничего не нашел для себя, узнай у искуственного интелекта, что тебе
+        посмотреть🤔🤖 <br />
         Мы как кинопоиск, только лучше. База фильмов будет обновляться со
-        временем
+        временем. 🚀🎉. <br />Скорее регистрируйся, если еще не сделал этого!!!
       </p>
+      {% if user.is_authenticated %}
       <a href="{% url 'topfilms' %}"
-        ><button class="btn btn-info">Перейти к лучшим фильмам</button></a
+        ><button class="btn btn-info">Перейти к лучшим фильмам 🎥👀</button></a
       >
+      {% endif %}
     </div>
-    {% endblock %}
   </body>
+  {% endblock %}
 </html>
