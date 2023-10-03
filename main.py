@@ -1,17 +1,16 @@
 import openai
+openai.api_key = "zu-51da786a04e4c8e3d7d0c9b354be2017"
+openai.api_base = "https://zukijourney.xyzbot.net/v1"
 
-openai.api_base = "https://api.theb.ai/v1"
-openai.api_key = 'sk-17mVUHXC49edx0trRiNXVGhlQi5BSQfHFXgWoinmcs0IV9q3'
 
-completion = openai.ChatCompletion.create(
-  model="claude-instant-1",
-  messages=[
-    {"role": "user", "content": "Можешь посоветовать топ 5 фильмов жанра романтика"}
-  ],
-  stream=False,
-  model_params={
-    "temperature": 0.8
-  }
+chat_completion = openai.ChatCompletion.create(
+    stream=False,
+    model="gpt-3.5",
+    messages=[
+        {
+            "role": "user",
+            "content": 'Посоветуй фильм в жанре романтика', 
+        },
+    ],
 )
-
-print(completion.choices[0]['message']['content'])
+print(chat_completion.choices[0].message.content)
