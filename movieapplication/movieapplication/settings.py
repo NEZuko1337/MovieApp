@@ -118,5 +118,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# TODO AUTH_USER_MODEL = 'users.User'
-# TODO LOGIN_URL = '/users/loginuser/'
+AUTH_USER_MODEL = 'movieapp.User'
+# TODO LOGIN_URL = 'loginuser/'
