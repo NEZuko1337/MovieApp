@@ -51,7 +51,7 @@ def advice_film(request):
         return render(request, 'movieapp/advice_film.html')
 
 
-# TODO
+
 def signupuser(request):
     if request.method == 'POST':
         form = SignUpForm(data=request.POST)
@@ -88,3 +88,5 @@ def loginuser(request):
 def logoutuser(request):
     logout(request)
     return redirect('home')
+
+# TODO просмотр профиля, добавление туда какой фильм хочешь посмотреть, что посмотрел, смена фото и ид.
