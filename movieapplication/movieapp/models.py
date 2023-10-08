@@ -11,6 +11,8 @@ class Films(models.Model):
     watched = models.BooleanField(null=False, default=False)
     planned_to_watch = models.BooleanField(null=False, default=False)
 
+    class Meta:
+        verbose_name_plural = 'Films'
 
     def __str__(self) -> str:
         return f'{self.title} | {self.genre}'
@@ -18,4 +20,5 @@ class Films(models.Model):
 
 class User(AbstractUser):
     photo = models.ImageField(blank=True, upload_to='profile_photos')
+    email = models.EmailField(null=False, unique=True)
     
