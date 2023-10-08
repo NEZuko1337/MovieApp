@@ -42,7 +42,9 @@
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Вошли под: {{user.username}}</a>
+          <a class="nav-link" href="{% url 'profile' %}"
+            >Вошли под: {{user.username}}</a
+          >
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'logoutuser' %}">Выйти</a>
