@@ -1,8 +1,8 @@
 import openai
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import login, authenticate, logout
-from . models import Films
-from . forms import LoginForm, SignUpForm
+from . models import Films, User
+from . forms import LoginForm, SignUpForm, ProfileForm
 
 openai.api_key = "zu-51da786a04e4c8e3d7d0c9b354be2017"
 openai.api_base = "https://zukijourney.xyzbot.net/v1"
@@ -89,4 +89,15 @@ def logoutuser(request):
     logout(request)
     return redirect('home')
 
-# TODO просмотр профиля, добавление туда какой фильм хочешь посмотреть, что посмотрел, смена фото и ид.
+
+def profile(request):
+    if request.method == 'POST':
+        form = ProfileForm(data=request.POST, instance=request.user, files=request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+        else:
+            return render(request, 'movieapp/profilepage.html', {'form' : form, 'error': 'Something went wrong! Try again.'})
+    else:
+        form = ProfileForm(instance=request.user)
+    return render(request, 'movieapp/profilepage.html', {'form': form})
